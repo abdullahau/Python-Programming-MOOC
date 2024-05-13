@@ -124,7 +124,7 @@ def print_persons(filename: str):
     for i in data:
         print(f"{i["name"]} {i["age"]} years ({", ".join(i["hobbies"])})")
 
-print_persons("Exercise Files\\file2.json")
+print_persons("Data-Files\\file2.json")
 
 
 # Handing JSON files - Approach 2
@@ -376,8 +376,8 @@ def retrieve_course(course_name: str):
     }
 
 # Who cheated - review
-# Exercise Files\start_times.csv
-# Exercise Files\submissions.csv
+# Data-Files\start_times.csv
+# Data-Files\submissions.csv
 
 # The file 'start_times.csv' contains individual start times for a programming exam, in the format 'name;hh:mm'. 
 # An example:
@@ -408,14 +408,14 @@ from datetime import datetime, timedelta
 
 def cheaters():
     student_dict = {}
-    with open("Exercise Files\start_times.csv") as start_file:
+    with open("Data-Files\start_times.csv") as start_file:
         for line in csv.reader(start_file, delimiter=";"):
             start_time = datetime.strptime(line[1], "%H:%M")
             cutoff_time = start_time + timedelta(hours=3)
             student_dict[line[0]] = cutoff_time
 
     cheater_list = []
-    with open("Exercise Files\submissions.csv") as sub_file:
+    with open("Data-Files\submissions.csv") as sub_file:
         for line in csv.reader(sub_file, delimiter=";"):
             end_time = datetime.strptime(line[3], "%H:%M")
             if student_dict[line[0]] < end_time and line[0] not in cheater_list:
@@ -526,14 +526,14 @@ from datetime import datetime, timedelta
 def final_points():
     cutoff_dict = {}
     points_dict = {}
-    with open("Exercise Files\start_times.csv") as start_file:
+    with open("Data-Files\start_times.csv") as start_file:
         for line in csv.reader(start_file, delimiter=";"):
             start_time = datetime.strptime(line[1], "%H:%M")
             cutoff_time = start_time + timedelta(hours=3)
             cutoff_dict[line[0]] = cutoff_time
             points_dict[line[0]] = {}
 
-    with open("Exercise Files\submissions.csv") as sub_file:
+    with open("Data-Files\submissions.csv") as sub_file:
         for line in csv.reader(sub_file, delimiter=";"):
             end_time = datetime.strptime(line[3], "%H:%M")
             grade = int(line[2])
@@ -626,7 +626,7 @@ else:
 
 def words():
     wordlist = []
-    with open("Exercise Files\words.txt") as wordfile:
+    with open("Data-Files\words.txt") as wordfile:
         for word in wordfile:
             wordlist.append(word.strip())
     return wordlist

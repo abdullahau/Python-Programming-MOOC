@@ -393,8 +393,8 @@ Remember, every list comprehension can be rewritten in for loop, but every for l
 
 # It is up to you to decide how to implement this. The easiest way would likely be to make use of list and dictionary comprehensions.
 
-# Exercise Files\programming.txt
-# Exercise Files\comprehensions.txt
+# Data-Files\programming.txt
+# Data-Files\comprehensions.txt
 
 # Test - 1 - Remove Puntutaions from String
 line = "this! is. Full? of... Punctuation!"
@@ -412,7 +412,7 @@ def most_common_words(filename: str, lower_limit: int):
         line = [word.strip("!#$%&'()*+,-./:;<=>?@[\]^_`{|}~") for word in line]
     return {word: line.count(word) for word in line if line.count(word) >= lower_limit}
         
-most_common_words('Exercise Files\\comprehensions.txt', 3)
+most_common_words('Data-Files\\comprehensions.txt', 3)
 
 # Approach 2
 from string import punctuation
@@ -425,7 +425,7 @@ def most_common_words(filename: str, lower_limit: int):
     return {word: line.count(word) for word in line if line.count(word) >= lower_limit}
         
 
-most_common_words('Exercise Files\\comprehensions.txt', 3)
+most_common_words('Data-Files\\comprehensions.txt', 3)
 
 # Approach 3
 

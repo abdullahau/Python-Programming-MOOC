@@ -3,12 +3,12 @@
 # The header line opens the file, and the block where the file can be accessed follows. 
 # After the block the file is automatically closed, and can no longer be accessed.
 
-with open("Exercise Files\example.txt") as new_file:
+with open("Data-Files\example.txt") as new_file:
     contents = new_file.read()
     print(contents)
 
 # Going through the contents of a file
-with open("Exercise Files\example.txt") as new_file:
+with open("Data-Files\example.txt") as new_file:
     count = 0
     total_length = 0
 
@@ -55,7 +55,7 @@ for word in words:
     print(word)
 
 # Reading CSV files
-with open("Exercise Files\grades.csv") as new_file:
+with open("Data-Files\grades.csv") as new_file:
     for line in new_file:
         line = line.replace("\n", "")
         parts = line.split(";")
@@ -66,7 +66,7 @@ with open("Exercise Files\grades.csv") as new_file:
         
 # Fruit market
 def read_fruits():
-    with open('Exercise Files\\fruits.csv') as file:
+    with open('Data-Files\\fruits.csv') as file:
         fruits = {}
         
         for row in file:
@@ -80,7 +80,7 @@ read_fruits()
 
 # Matrix - Approach 1
 def matrix_sum():
-    with open("Exercise Files\matrix.txt") as matrix:
+    with open("Data-Files\matrix.txt") as matrix:
         sum = 0
         
         for row in matrix:
@@ -94,7 +94,7 @@ def matrix_sum():
 matrix_sum()
 
 def matrix_max():
-    with open("Exercise Files\matrix.txt") as matrix:
+    with open("Data-Files\matrix.txt") as matrix:
         max = 0
         
         for row in matrix:
@@ -109,7 +109,7 @@ def matrix_max():
 matrix_max()
 
 def row_sums():
-    with open("Exercise Files\matrix.txt") as matrix:
+    with open("Data-Files\matrix.txt") as matrix:
         sums = []
         
         for row in matrix:
@@ -126,7 +126,7 @@ row_sums()
 
 # Matrix - Approach 2
 def read_matrix():
-    with open("Exercise Files\matrix.txt") as file:
+    with open("Data-Files\matrix.txt") as file:
         m = []
         for row in file:
             mrow = []
@@ -235,7 +235,7 @@ print("the oldest is", oldest)
 
 # More CSV file processing
 grades = {}
-with open("Exercise Files\grades.csv") as new_file:
+with open("Data-Files\grades.csv") as new_file:
     for line in new_file:
             line = line.replace("\n", "")
             parts = line.split(";")
@@ -394,8 +394,8 @@ if False:
     exercise_data = input("Exercises completed: ")
 else:
     # hard-coded input
-    student_info = "Exercise Files\course-grading-part-1\students1.csv"
-    exercise_data = "Exercise Files\course-grading-part-1\exercises1.csv"
+    student_info = "Data-Files\course-grading-part-1\students1.csv"
+    exercise_data = "Data-Files\course-grading-part-1\exercises1.csv"
 
 students = {}
 with open(student_info) as new_file:
@@ -463,9 +463,9 @@ if False:
     exam_data = input("Exam points: ")
 else:
     # hard-coded input
-    student_info = "Exercise Files\course-grading-part-2\students1.csv"
-    exercise_data = "Exercise Files\course-grading-part-2\exercises1.csv"
-    exam_data = "Exercise Files\course-grading-part-2\exam_points1.csv"
+    student_info = "Data-Files\course-grading-part-2\students1.csv"
+    exercise_data = "Data-Files\course-grading-part-2\exercises1.csv"
+    exam_data = "Data-Files\course-grading-part-2\exam_points1.csv"
 
 students = {}
 with open(student_info) as new_file:
@@ -577,9 +577,9 @@ if False:
     exam_data = input("Exam points: ")
 else:
     # hard-coded input
-    student_info = "Exercise Files\course-grading-part-3\students1.csv"
-    exercise_data = "Exercise Files\course-grading-part-3\exercises1.csv"
-    exam_data = "Exercise Files\course-grading-part-3\exam_points1.csv"
+    student_info = "Data-Files\course-grading-part-3\students1.csv"
+    exercise_data = "Data-Files\course-grading-part-3\exercises1.csv"
+    exam_data = "Data-Files\course-grading-part-3\exam_points1.csv"
 
 students = {}
 with open(student_info) as new_file:
@@ -705,7 +705,7 @@ else:
 
 text = text.split(" ")
 
-with open("Exercise Files\wordlist.txt") as wordlist:
+with open("Data-Files\wordlist.txt") as wordlist:
     words = []
     for line in wordlist:
         word = line.strip()
@@ -745,7 +745,7 @@ print()
 # Recipe search - Approach 1
 
 # Part 1 - Search for recipes based on the name of the recipe
-with open('Exercise Files/recipes1.txt') as my_recipes:
+with open('Data-Files/recipes1.txt') as my_recipes:
     recipe_name = []
     counter = 0
     for recipe in my_recipes:
@@ -764,7 +764,7 @@ for recipe in recipe_name:
         print(recipe)
 
 # Part 2 - Search for recipes based on the preparation time
-with open("Exercise Files/recipes1.txt") as new_file:
+with open("Data-Files/recipes1.txt") as new_file:
     prep_time = {}
     recipe = ""
     for line in new_file:
@@ -781,7 +781,7 @@ for time, recipe in prep_time.items():
         print(f"{recipe}, preparation time {time} min")
 
 # Part 3 - Search for recipes based on the ingredients
-with open("Exercise Files/recipes1.txt") as new_file:
+with open("Data-Files/recipes1.txt") as new_file:
     prep_time = {}
     recipe = {}
     ingredients = []
@@ -871,9 +871,9 @@ def search_by_ingredient(filename: str, ingredient: str):
 if False:
     search_by_name("recipes1.txt", "milk")
 else:
-    search_by_name(r"Exercise Files\\recipes1.txt", "cake")
-    search_by_time(r"Exercise Files\\recipes1.txt", 30)
-    search_by_ingredient(r"Exercise Files\\recipes1.txt", "milk")
+    search_by_name(r"Data-Files\\recipes1.txt", "cake")
+    search_by_time(r"Data-Files\\recipes1.txt", 30)
+    search_by_ingredient(r"Data-Files\\recipes1.txt", "milk")
 
 
 # Recipe search - Approach 2
@@ -1038,7 +1038,7 @@ def greatest_distance(stations: dict):
                 station_y = station2
     return station_x, station_y, distance
 
-stations = get_station_data(r"Exercise Files\stations1.csv")
+stations = get_station_data(r"Data-Files\stations1.csv")
 
 d = distance(stations, "Designmuseo", "Hietalahdentori")
 print(d)

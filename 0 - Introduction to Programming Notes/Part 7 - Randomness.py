@@ -479,9 +479,9 @@ def play(die1: str, die2: str, times: int):
     return v1, v2, t
 
 # Random words - Review
-# Exercise Files\words.txt
+# Data-Files\words.txt
 
-with open("Exercise Files\words.txt") as words:
+with open("Data-Files\words.txt") as words:
     match = []
     for word in words:
         word = word.strip()
@@ -500,7 +500,7 @@ len(match)
 from random import sample
 
 def words(n: int, beginning: str) -> list:
-    with open("Exercise Files\words.txt") as words:
+    with open("Data-Files\words.txt") as words:
         match = []
         for word in words:
             word = word.strip()

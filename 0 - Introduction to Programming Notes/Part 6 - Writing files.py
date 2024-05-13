@@ -271,7 +271,7 @@ with open("diary.txt", "a") as file:
         
 # Filtering the contents of a file - Approach 1
 def filter_solutions():
-    with open("Exercise Files/solutions.csv") as calculations:
+    with open("Data-Files/solutions.csv") as calculations:
         correct_list = []
         incorrect_list = []
         for line in calculations:
@@ -298,7 +298,7 @@ def filter_solutions():
                     row.append(part)
                 incorrect_list.append(row)
 
-    with open("Exercise Files/correct.csv", "w") as my_file:
+    with open("Data-Files/correct.csv", "w") as my_file:
         for result in correct_list:
             line = ""
             for value in result:
@@ -306,7 +306,7 @@ def filter_solutions():
             line = line[:-1]
             my_file.write(line+"\n")
             
-    with open("Exercise Files/incorrect.csv", "w") as my_file:
+    with open("Data-Files/incorrect.csv", "w") as my_file:
         for result in incorrect_list:
             line = ""
             for value in result:
@@ -362,7 +362,7 @@ else:
 
 # Store personal data - Approach 1
 def store_personal_data(person: tuple):
-    with open("Exercise Files\people.csv", "a") as database:
+    with open("Data-Files\people.csv", "a") as database:
         line = ""
         for data in person:
             line += f"{data};"
@@ -480,9 +480,9 @@ if False:
     exam_data = input("Exam points: ")
 else:
     # hard-coded input
-    student_info = "Exercise Files\course-grading-part-3\students1.csv"
-    exercise_data = "Exercise Files\course-grading-part-3\exercises1.csv"
-    exam_data = "Exercise Files\course-grading-part-3\exam_points1.csv"
+    student_info = "Data-Files\course-grading-part-3\students1.csv"
+    exercise_data = "Data-Files\course-grading-part-3\exercises1.csv"
+    exam_data = "Data-Files\course-grading-part-3\exam_points1.csv"
 
 students = {}
 with open(student_info) as new_file:
@@ -646,10 +646,10 @@ if False:
     course_info = input("Course information: ")
 else:
     # hard-coded input
-    student_info = "Exercise Files\course-grading-part-4\students4.csv"
-    exercise_data = "Exercise Files\course-grading-part-4\exercises4.csv"
-    exam_data = "Exercise Files\course-grading-part-4\exam_points4.csv"
-    course_info = "Exercise Files\course-grading-part-4\course4.txt"
+    student_info = "Data-Files\course-grading-part-4\students4.csv"
+    exercise_data = "Data-Files\course-grading-part-4\exercises4.csv"
+    exam_data = "Data-Files\course-grading-part-4\exam_points4.csv"
+    course_info = "Data-Files\course-grading-part-4\course4.txt"
 
 students = {}
 with open(student_info) as new_file:

@@ -19,7 +19,7 @@ while True:
 
 When this program is run, it should display a window:
 
-<img src="programming-23-Course-Data\part-13\pygame_first.gif">
+<img src="Images\Pygame\pygame_first.gif">
 
 
 The program only consists of displaying a window, and it runs until the user closes the window.
@@ -81,13 +81,13 @@ while True:
 
 The program uses this image of a robot, which is stored in the file `robot.png`:
 
-<img src="programming-23-Course-Data\part-13\robot.png">
+<img src="Images\Pygame\robot.png">
 
 The file `robot.png` has to be in the same directory with the source code of the your program, or the program won't be able to find it. In the exercise templates for this part the images are waiting in the exercise directory.
 
 The window should now look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_pic.gif">
+<img src="Images\Pygame\pygame_pic.gif">
 
 The function `pygame.image.load` loads the image in the file `robot.png` and stores a reference to it in the variable named `robot`. The method `blit` draws the image at the location `(100, 50)`, and the function `pygame.display.flip` updates the window contents, as before. The location `(100, 50)` means that the _top left corner_ of the image is at that location within the window.
 
@@ -103,7 +103,7 @@ window.blit(robot, (100, 200))
 
 The window should look like this as a result:
 
-<img src="programming-23-Course-Data\part-13\pygame_pic2.gif">
+<img src="Images\Pygame\pygame_pic2.gif">
 
 Here we set the location of the image so that it lies at the centre of the window:
 
@@ -115,7 +115,7 @@ window.blit(robot, (320-width/2, 240-height/2))
 
 The window should now look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_pic3.gif">
+<img src="Images\Pygame\pygame_pic3.gif">
 
 The method `get_width` returns the width of the image, and the method `get_height` returns its height, both in pixels. The centre of the window is at half its width and height, so at `(320, 240)`, which we can use to calculate a suitable location for the top left corner of the image, so that it lies exactly at the centre.
 
@@ -154,7 +154,7 @@ while True:
 
 When this is executed, the result should look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_animation.gif">
+<img src="Images\Pygame\pygame_animation.gif">
 
 Let's take a closer look at the commands involved. If we want to trace the movement of the image on the screen, we need to know its location, which is why we have two variables for the coordinates of the top left corner of the image:
 
@@ -234,7 +234,7 @@ while True:
 
 Running the above code should look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_animation2.gif">
+<img src="Images\Pygame\pygame_animation2.gif">
 
 There is a new variable `velocity` which determines the direction of the movement. If the value is above zero, movement is to the right, and if it is below zero, movement is to the left. More precisely in this case, if the value is `1`, the robot moves to the right, and if it is `-1`, the robot moves to the left.
 
@@ -285,7 +285,7 @@ while True:
 
 Running the above code should look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_rotation.gif">
+<img src="Images\Pygame\pygame_rotation.gif">
 
 Rotation in a relatively precise circle is achieved with the help of some basic trigonometric functions. The varible `angle` contains the angle of the robots location in relation to the centre of the window and the horizontal line running through it. The sine and cosine functions from the Python math library are used to calculate the coordinates of the robot's location:
 
@@ -488,7 +488,7 @@ while True:
 
 Depending on how you use your arrow keys, running the program could look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_move_robot.gif">
+<img src="Images\Pygame\pygame_move_robot.gif">
 
 In the code above we have the variables `x` and `y` which contain the coordinate location for the sprite. The variable `y` is set so that the sprite appears at the bottom of the window. The `y` value does not change throughout the execution of the program. The `x` value, however, increases by 10 whenever the user presses the arrow key to the right, and decreases by 10 whenever the left arrow key is pressed.
 
@@ -598,7 +598,7 @@ while True:
 
 The execution of the program could look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_cursor.gif">
+<img src="Images\Pygame\pygame_cursor.gif">
 
 The following program contains an animation where the robot sprite follows the mouse cursor.The location of the sprite is stored in the variables `robot_x` and `robot_y`. When the mouse moves, its location is stored in the variables `target_x` ja `target_y`. If the robot is not at this location, it moves to the approproate direction.
 
@@ -644,7 +644,7 @@ while True:
 
 The program's execution should look more or less like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_cursor2.gif">
+<img src="Images\Pygame\pygame_cursor2.gif">
 
 ## More pygame techniques
 
@@ -681,7 +681,7 @@ while True:
 
 Running the above code should look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_shapes.gif">
+<img src="Images\Pygame\pygame_shapes.gif">
 
 ### Drawing text
 
@@ -707,7 +707,7 @@ while True:
 
 Running the above code should look like this:
 
-<img src="programming-23-Course-Data\part-13\pygame_text.gif">
+<img src="Images\Pygame\pygame_text.gif">
 
 Here the method `pygame.font.SysFont` creates a font object, which uses the system font Arial in size 24. The the method `render` creates an image of the specified text in the given colour. This image is drawn on the window with the `blit` method, just as before.
 
@@ -719,7 +719,7 @@ In this part we will use pygame to create a somewhat larger game. It is a variat
 
 The end result will look like this:
 
-<img src="programming-23-Course-Data\part-14\game.png">
+<img src="Images\Pygame\game.png">
 
 ### The game map
 
@@ -829,21 +829,21 @@ The game makes use of the following images:
 
 #### Floor square
 
-<img src="programming-23-Course-Data\part-14\floor.png">
+<img src="Images\Pygame\floor.png">
 
 * Filename: `floor.png`
 * Position in list: 0
 
 #### Wall square
 
-<img src="programming-23-Course-Data\part-14\wall.png">
+<img src="Images\Pygame\wall.png">
 
 * Filename: `wall.png`
 * Position in list: 1
 
 #### Target square
 
-<img src="programming-23-Course-Data\part-14\target.png">
+<img src="Images\Pygame\target.png">
 
 * Filename: `target.png`
 * Position in list: 2
@@ -851,21 +851,21 @@ The game makes use of the following images:
 
 #### Box
 
-<img src="programming-23-Course-Data\part-14\box.png">
+<img src="Images\Pygame\box.png">
 
 * Filename: `box.png`
 * Position in list: 3
 
 #### Robot
 
-<img src="programming-23-Course-Data\part-14\robot.png">
+<img src="Images\Pygame\robot.png">
 
 * Filename: `robot.png`
 * Position in list: 4
 
 #### Box on a target square
 
-<img src="programming-23-Course-Data\part-14\done.png">
+<img src="Images\Pygame\done.png">
 
 * Filename: `done.png`
 * Position in list: 5
@@ -873,7 +873,7 @@ The game makes use of the following images:
 
 #### Robot on a target square
 
-<img src="programming-23-Course-Data\part-14\target_robot.png">
+<img src="Images\Pygame\target_robot.png">
 
 * Filename: `target_robot.png`
 * Position in list: 6

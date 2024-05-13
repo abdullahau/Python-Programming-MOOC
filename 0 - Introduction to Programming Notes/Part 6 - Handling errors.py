@@ -310,7 +310,7 @@ def number_error(lottery_numbers):
         return False
 
 def filter_incorrect():
-    with open("Exercise Files\lottery_numbers.csv") as main, open("Exercise Files\correct_numbers.csv", "w") as correct:
+    with open("Data-Files\lottery_numbers.csv") as main, open("Data-Files\correct_numbers.csv", "w") as correct:
         for line in main:
             line = line.strip()
             parts = line.split(";")
