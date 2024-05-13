@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"interactiveWindow.collapseCellInputCode": "never",
+		"python.terminal.executeInFileDir": true
+	}
+}
