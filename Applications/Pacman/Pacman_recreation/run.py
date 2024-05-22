@@ -24,7 +24,7 @@ class GameController(object):
         self.setBackground()
         self.nodes = NodeGroup()
         self.nodes.setupTestNodes()
-        self.pacman = Pacman()
+        self.pacman = Pacman(self.nodes.nodeList[0])
 
 
     def update(self):

@@ -18,6 +18,8 @@ red = (255, 0, 0)
 teal = (0,139,139)
 blue = (0, 0, 255)
 
+
+
 maze = ['+-+-+-+-+-+-+-+-+-+-+',
         '|   |     |         |',
         '+ +-+ +-+ + +-+ +-+ +',
@@ -62,11 +64,6 @@ maze2 = ['+-+-+-+-+-+-+-+-+-+-+',
          '|   |       |       |',
          '+-+-+-+-+-+-+-+-+-+-+']
 
-class Node:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
 # ----- Game Class ------
 class RobotRescueMission:
     def __init__(self):
@@ -83,14 +80,9 @@ class RobotRescueMission:
         
         self.load_images()
         
-        # Create nodes for white spaces
-        self.nodes = []
-        for row, line in enumerate(maze2):
-            for col, char in enumerate(line):
-                if char == " ":
-                    self.nodes.append(Node(col * (tile_width + 11), row * (tile_height + 11)))
+        self.node(maze2)
         
-        self.robot_x, self.robot_y = self.nodes[0].x, self.nodes[0].y
+        self.robot_x, self.robot_y = 1 * (tile_width + 11), 1 * (tile_height + 11)
         
         self.main_loop()
     
@@ -104,18 +96,23 @@ class RobotRescueMission:
     def coin_spawn(self):
         return (randint(0,600), randint(0,600))
     
-    def colors(self):
-        pass
+    def maze_render(self, maze):
+        # Draw maze walls
+        for row, line in enumerate(maze):
+            for col, char in enumerate(line):
+                x, y = (col) * (tile_width + 11), (row) * (tile_height + 11)
+                if char == " ":
+                    pygame.draw.rect(self.screen, white, (x, y, (tile_width+11), (tile_height+11)), width=0)
+                else:
+                    pygame.draw.rect(self.screen, teal, ((x, y), ((tile_width+11), (tile_height+11))), width=0)
     
     def move(self, dx, dy):
         # Calculate new position
         new_x, new_y = self.robot_x + dx, self.robot_y + dy
         
         # Check if the new position is within the white space nodes
-        for node in self.nodes:
-            if node.x == new_x and node.y == new_y:
-                self.robot_x, self.robot_y = new_x, new_y
-                break
+        if (new_x, new_y) in self.nodes:
+            self.robot_x, self.robot_y = new_x, new_y
     
     def move_monsters(self):
         pass
@@ -151,14 +148,7 @@ class RobotRescueMission:
     def render(self):
         self.screen.fill(white)
         
-        # Draw maze walls
-        for row, line in enumerate(maze2):
-            for col, char in enumerate(line):
-                x, y = (col) * (tile_width + 11), (row) * (tile_height + 11)
-                if char == " ":
-                    pygame.draw.rect(self.screen, white, (x, y, (tile_width+11), (tile_height+11)), width=0)
-                else:
-                    pygame.draw.rect(self.screen, teal, ((x, y), ((tile_width+11), (tile_height+11))), width=0)
+        self.maze_render(maze2)
         
         # Draw Robot
         for image in self.images:
