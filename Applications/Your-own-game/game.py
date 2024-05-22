@@ -16,7 +16,10 @@ class RobotRescueMission:
         
     
     def load_images(self):
-        pass
+        self.robot = pygame.image.load("robot.png")
+        self.coin = pygame.image.load("coin.png")
+        self.monster = pygame.image.load("monster.png")
+        self.door = pygame.image.load("door.png")
     
     def colors(self):
         pass
