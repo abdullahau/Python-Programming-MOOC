@@ -1,4 +1,3 @@
-# Write your solution to exercise 3 here
 class Recipe:
     def __init__(self, name: str, ingredients: list, time: int, instructions: str):
         self.__name = name
@@ -49,7 +48,6 @@ class Recipe:
         return f"Recipe(name='{self.name}', ingredients={self.ingredients}, time={self.time}, instructions='{self.instructions}')"
 
 class RecipeBook:
-
     def __init__(self):
         self.__recipe_book = []
         
@@ -101,15 +99,13 @@ class RecipeBook:
     def all_recipes(self):
         recipe_list = self.__recipe_book[:]
         return recipe_list
-
-
-class FileHandler:
-    def __init__(self, filename: str):
-        pass
+    
+    def clear_book(self):
+        self.__recipe_book = []
 
 class RecipeApplication:
     def __init__(self):
-        self.__recipe_in_memory = {}
+        self.__recipebook = RecipeBook()
         self.memory_load()
         
     def memory_load(self):
@@ -119,7 +115,7 @@ class RecipeApplication:
                     line = line.strip()
                     parts = line.split(";")
                     recipe = Recipe(parts[0], parts[1].split(','), parts[2], parts[3])
-                    self.__recipe_in_memory[parts[0]] = recipe
+                    self.__recipebook.add_recipe(recipe)
         except FileNotFoundError:
             open("recipes.txt", "w")
 
@@ -141,44 +137,42 @@ class RecipeApplication:
 
     def add_recipe(self):
         name = input("Enter recipe name: ")
-        if name in self.__recipe_in_memory:
+        if self.__recipebook.recipe_by_name(name):
             print("Recipe already exists")
         else:
             ingredients = input("Enter recipe ingredients separated by comma: ")
             time = input("Enter recipe cooktime (min): ")
             instructions = input("Enter recipe instructions: ")
             recipe = Recipe(name, ingredients, time, instructions)
-            self.__recipe_in_memory[name] = recipe
+            self.__recipebook.add_recipe(recipe)
             self.write_to_file(recipe)
             print(f"Added recipe {name}")
     
     def remove_recipe(self):
         name = input("Enter name of recipe to remove: ")
-        if name in self.__recipe_in_memory:
+        if self.__recipebook.recipe_by_name(name):
             with open("recipes.txt", 'r') as file:
                 lines = file.readlines()
             lines = [line for line in lines if line.strip().split(";")[0] != name]
             with open("recipes.txt", 'w') as file:
                 file.writelines(lines)
-            del self.__recipe_in_memory[name]
+            self.__recipebook.remove_recipe(self.__recipebook.recipe_by_name(name))
             print(f"Removed recipe {name}")
         else:
-            print(f"No recipe found with name {name}")
+            print(f"No recipe found with name {name}")            
     
     def name_search(self):
         name = input("Enter recipe name to search: ")
-        if name in self.__recipe_in_memory:
-            print(f"Found recipe: {self.__recipe_in_memory[name]}")
+        recipe = self.__recipebook.recipe_by_name(name)
+        if recipe:
+            print(f"Found recipe: {recipe}")
         else:
             print(f"No recipe found with name {name}")
     
     def ingredient_search(self):
         ingredients = input("Enter the ingredients of the recipe you're looking for, separated by commas: ")
         ingredients = ingredients.split(",")
-        book = RecipeBook()
-        for recipe in self.__recipe_in_memory.values():
-            book.add_recipe(recipe)
-        recipes = book.recipes_containing_ingredients(ingredients)
+        recipes = self.__recipebook.recipes_containing_ingredients(ingredients)
         if len(recipes) > 0:
             print(f"Found recipes with ingredients {ingredients}")
             for item in recipes:
@@ -188,10 +182,7 @@ class RecipeApplication:
     
     def time_search(self):
         time = int(input("Enter the preparation time of the recipe you're looking for (min): "))
-        book = RecipeBook()
-        for recipe in self.__recipe_in_memory.values():
-            book.add_recipe(recipe)
-        recipes = book.recipes_within_time(time)
+        recipes = self.__recipebook.recipes_within_time(time)
         if len(recipes) > 0:
             print(f"Found recipes with preparation time {time} min:")
             for item in recipes:
@@ -202,10 +193,7 @@ class RecipeApplication:
     def available_ingredient_search(self):
         ingredients = input("Enter the ingredients of the recipe you're looking for, separated by commas: ")
         ingredients = ingredients.split(",")
-        book = RecipeBook()
-        for recipe in self.__recipe_in_memory.values():
-            book.add_recipe(recipe)
-        recipes = book.recipes_with_all_ingredients(ingredients)
+        recipes = self.__recipebook.recipes_with_all_ingredients(ingredients)
         if len(recipes) > 0:
             print(f"Found recipes with ingredients {ingredients}")
             for item in recipes:
@@ -214,16 +202,17 @@ class RecipeApplication:
             print(f"No recipe found with ingredients {ingredients}")
     
     def all_recipe(self):
-        if len(self.__recipe_in_memory) > 0:
+        recipes = self.__recipebook.all_recipes()
+        if len(recipes) > 0:
             print("Found recipes:")
-            for recipe in self.__recipe_in_memory.values():
+            for recipe in recipes:
                 print(recipe)
         else:
             print("No recipes found")
     
     def clear(self):
         open("recipes.txt", "w")
-        self.__recipe_in_memory = {}
+        self.__recipebook.clear_book()
         print("Memory cleared")
 
     def execute(self):
@@ -251,8 +240,7 @@ class RecipeApplication:
                 self.clear()                
             else:
                 self.help()
-                continue
-            
+                continue     
 
 application = RecipeApplication()
 application.execute()

@@ -1,0 +1,3 @@
+Chicken;Chicken,Salt;15;Fry chicken. Add Salt
+Fish;Fish,Salt,Dill;35;Add salt and dill to the fish. Fry the Fish
+Blueberry muffins;Flour,Milk,Sugar,Blueberries;30;Mix ingredients. Bake at 180 degrees

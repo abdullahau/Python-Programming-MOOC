@@ -1,4 +1,3 @@
-# Write your solution to exercise 1 here
 class Recipe:
     def __init__(self, name: str, ingredients: list, time: int, instructions: str):
         self.__name = name
@@ -58,52 +57,52 @@ class Recipe:
         return f"Recipe(name='{self.name}', ingredients={self.ingredients}, time={self.time}, instructions='{self.instructions}')"
     
 
-if __name__ == "__main__":
-    r1 = Recipe("Chicken", ["Chicken", "Salt"], 15, "Fry the chicken. Add salt.")
-    print(r1.name)
 
-    r1.name = "Delicious Chicken"
-    print("Name changed")
-    print("New name:", r1.name)
+r1 = Recipe("Chicken", ["Chicken", "Salt"], 15, "Fry the chicken. Add salt.")
+print(r1.name)
 
-    r1.name = "DC"
-    print("Name changed")
-    print("Name did not change, still:", r1.name)
-    r1.name = 123
-    print("Name can't be changed to other than string, so it's still:", r1.name)
+r1.name = "Delicious Chicken"
+print("Name changed")
+print("New name:", r1.name)
 
-    try:
-        r1.time = 5
-    except AttributeError:
-        print("Time cannot be changed")
+r1.name = "DC"
+print("Name changed")
+print("Name did not change, still:", r1.name)
+r1.name = 123
+print("Name can't be changed to other than string, so it's still:", r1.name)
 
-    try:
-        r1.ingredients = ["Chicken", "Salt", "Pepper"]
-    except AttributeError:
-        print("Ingredients cannot be changed")
+try:
+    r1.time = 5
+except AttributeError:
+    print("Time cannot be changed")
 
-    try:
-        r1.instructions = "Fry the chicken. Add salt and pepper." 
-    except AttributeError:
-        print("Instructions cannot be changed")
-    
-    # OUTPUT:  
-    # Chicken
-    # Name changed
-    # New name: Delicious Chicken
-    # Name changed
-    # Name did not change, still: Delicious Chicken
-    # Name can't be changed to other than string, so it's still: Delicious Chicken
-    # Time cannot be changed
-    # Ingredients cannot be changed
-    # Instructions cannot be changed
+try:
+    r1.ingredients = ["Chicken", "Salt", "Pepper"]
+except AttributeError:
+    print("Ingredients cannot be changed")
 
-    r1 = Recipe("Chicken", ["Chicken", "Salt"], 15, "Fry the chicken in a pan. Add salt.")
-    r2 = Recipe("Caesar Salad", ["Lettuce", "Chicken", "Dressing"], 25, "Cook the chicken. Put the lettuce on a plate. Add chicken. Add dressing.")
+try:
+    r1.instructions = "Fry the chicken. Add salt and pepper." 
+except AttributeError:
+    print("Instructions cannot be changed")
+  
+# OUTPUT:  
+# Chicken
+# Name changed
+# New name: Delicious Chicken
+# Name changed
+# Name did not change, still: Delicious Chicken
+# Name can't be changed to other than string, so it's still: Delicious Chicken
+# Time cannot be changed
+# Ingredients cannot be changed
+# Instructions cannot be changed
 
-    print("r1 > r2:", r1 > r2)
-    print("r1 < r2:", r1 < r2)
+r1 = Recipe("Chicken", ["Chicken", "Salt"], 15, "Fry the chicken in a pan. Add salt.")
+r2 = Recipe("Caesar Salad", ["Lettuce", "Chicken", "Dressing"], 25, "Cook the chicken. Put the lettuce on a plate. Add chicken. Add dressing.")
 
-    # OUTPUT:
-    # r1 > r2: False
-    # r1 < r2: True
+print("r1 > r2:", r1 > r2)
+print("r1 < r2:", r1 < r2)
+
+# OUTPUT:
+# r1 > r2: False
+# r1 < r2: True

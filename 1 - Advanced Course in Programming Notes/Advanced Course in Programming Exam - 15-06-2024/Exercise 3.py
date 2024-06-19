@@ -1,4 +1,3 @@
-# Write your solution to exercise 3 here
 class Recipe:
     def __init__(self, name: str, ingredients: list, time: int, instructions: str):
         self.__name = name
@@ -49,7 +48,6 @@ class Recipe:
         return f"Recipe(name='{self.name}', ingredients={self.ingredients}, time={self.time}, instructions='{self.instructions}')"
 
 class RecipeBook:
-
     def __init__(self):
         self.__recipe_book = []
         
@@ -101,11 +99,6 @@ class RecipeBook:
     def all_recipes(self):
         recipe_list = self.__recipe_book[:]
         return recipe_list
-
-
-class FileHandler:
-    def __init__(self, filename: str):
-        pass
 
 class RecipeApplication:
     def __init__(self):
@@ -163,7 +156,7 @@ class RecipeApplication:
             del self.__recipe_in_memory[name]
             print(f"Removed recipe {name}")
         else:
-            print(f"No recipe found with name {name}")
+            print(f"No recipe found with name {name}")            
     
     def name_search(self):
         name = input("Enter recipe name to search: ")
@@ -251,8 +244,7 @@ class RecipeApplication:
                 self.clear()                
             else:
                 self.help()
-                continue
-            
+                continue     
 
 application = RecipeApplication()
 application.execute()

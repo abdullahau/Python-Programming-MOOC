@@ -1,4 +1,3 @@
-# Write your solution to exercise 2 here
 class Recipe:
     def __init__(self, name: str, ingredients: list, time: int, instructions: str):
         self.__name = name
@@ -110,35 +109,35 @@ class RecipeBook:
         recipe_list = self.__recipe_book[:]
         return recipe_list
 
-if __name__ == "__main__":
-    r1 = Recipe("Chicken", ["Chicken", "Salt"], 15, "Fry the chicken in a frying pan. Add salt.")
-    r2 = Recipe("Caesar Salad", ["Lettuce", "Chicken", "Dressing"], 25, "Cook the chicken. Place lettuce on a plate. Add chicken. Add dressing.")
-    r3 = Recipe("Blueberry Muffins", ["Flour", "Milk", "Sugar", "Blueberries"], 30, "Mix ingredients. Bake muffins at 180 degrees.")
 
-    recipe_book = RecipeBook()
-    recipe_book.add_recipe(r1)
-    recipe_book.add_recipe(r2)    
-    recipe_book.add_recipe(r3)
-    print(recipe_book)
-    print()
+r1 = Recipe("Chicken", ["Chicken", "Salt"], 15, "Fry the chicken in a frying pan. Add salt.")
+r2 = Recipe("Caesar Salad", ["Lettuce", "Chicken", "Dressing"], 25, "Cook the chicken. Place lettuce on a plate. Add chicken. Add dressing.")
+r3 = Recipe("Blueberry Muffins", ["Flour", "Milk", "Sugar", "Blueberries"], 30, "Mix ingredients. Bake muffins at 180 degrees.")
 
-    chicken = recipe_book.recipe_by_name("Chicken")
-    print("Recipe with search 'Chicken':", chicken)
-    print("Recipe with search 'Risotto':", recipe_book.recipe_by_name("Risotto"))
-    print()
+recipe_book = RecipeBook()
+recipe_book.add_recipe(r1)
+recipe_book.add_recipe(r2)    
+recipe_book.add_recipe(r3)
+print(recipe_book)
+print()
 
-    recipes_with_ingredients = recipe_book.recipes_containing_ingredients(["Chicken", "Dressing"])
-    print("Recipes that contain the ingredients 'Chicken', 'Dressing':", recipes_with_ingredients)
-    print()
+chicken = recipe_book.recipe_by_name("Chicken")
+print("Recipe with search 'Chicken':", chicken)
+print("Recipe with search 'Risotto':", recipe_book.recipe_by_name("Risotto"))
+print()
 
-    recipes_can_be_made_with = recipe_book.recipes_with_all_ingredients(["Chicken", "Salt", "Dressing", "Lettuce"])
-    print("Recipes that can be made with ingredients 'Chicken', 'Salt', 'Dressing', and 'Lettuce':", recipes_can_be_made_with)
+recipes_with_ingredients = recipe_book.recipes_containing_ingredients(["Chicken", "Dressing"])
+print("Recipes that contain the ingredients 'Chicken', 'Dressing':", recipes_with_ingredients)
+print()
 
-    print()
-    within_time = recipe_book.recipes_within_time(20)
-    print(within_time)
-    print("Recipes whose only ingredient is water:", recipe_book.recipes_with_all_ingredients(["Water"]))
-    print("Recipes that can be made in one minute:", recipe_book.recipes_within_time(1))
-    print()
-    print("All known recipes:")
-    print(recipe_book.all_recipes())
+recipes_can_be_made_with = recipe_book.recipes_with_all_ingredients(["Chicken", "Salt", "Dressing", "Lettuce"])
+print("Recipes that can be made with ingredients 'Chicken', 'Salt', 'Dressing', and 'Lettuce':", recipes_can_be_made_with)
+
+print()
+within_time = recipe_book.recipes_within_time(20)
+print(within_time)
+print("Recipes whose only ingredient is water:", recipe_book.recipes_with_all_ingredients(["Water"]))
+print("Recipes that can be made in one minute:", recipe_book.recipes_within_time(1))
+print()
+print("All known recipes:")
+print(recipe_book.all_recipes())

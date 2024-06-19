@@ -1,0 +1,3 @@
+Chicken;Chicken,Salt;15;fry all with salt
+Fish;Fish,Salt,Dill;35;fry it all together
+Bluberry Muffins;Blueberry,Salt,Sugar,Cream;30;mix and make
