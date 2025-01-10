@@ -1,3 +1,5 @@
+# https://rhettinger.github.io/puzzle.html
+
 ''' Generic Puzzle Solving Framework
 
 License:  MIT

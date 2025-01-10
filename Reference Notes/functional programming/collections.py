@@ -175,7 +175,8 @@ print(next(ma))
 
 def roundrobin(*iterables):
     "roundrobin('ABC', 'D', 'EF') --> A D E B F C"
-    iterators = deque(map(iter, iterables))
+    # https://en.wikipedia.org/wiki/Round-robin_scheduling
+    iterators = deque(map(iter, iterables)) # 
     while iterators:
         try:
             while True:
@@ -185,3 +186,28 @@ def roundrobin(*iterables):
             # Remove an exhausted iterator.
             iterators.popleft()
             
+rr = roundrobin('ABC', 'D', 'EF')
+print(next(rr))
+print(next(rr))
+print(next(rr))
+print(next(rr))
+print(next(rr))
+print(next(rr))
+
+# The rotate() method provides a way to implement deque slicing and deletion. 
+# For example, a pure Python implementation of del d[n] relies on the rotate() method to position elements to be popped:
+
+def delete_nth(d, n):
+    d.rotate(-n)
+    d.popleft()
+    d.rotate(n)
+
+d = deque('abdullah')
+delete_nth(d, 3)
+print(d)
+d.rotate(-4)
+print(d)
+
+# To implement deque slicing, use a similar approach applying rotate() to bring a target element to the left side of the deque. 
+# Remove old entries with popleft(), add new entries with extend(), and then reverse the rotation. With minor variations on that approach, 
+# it is easy to implement Forth style stack manipulations such as `dup`, `drop`, `swap`, `over`, `pick`, `rot`, and `roll`.
